@@ -1,0 +1,1940 @@
+
+/* ==================================================
+   ZÁKLAD
+================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+
+    background: #f7f5ef;
+
+    color: #9aad9f;
+
+    line-height: 1.7;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ==================================================
+   BARVY
+================================================== */
+
+:root {
+
+    --eucalyptus: #9aad9f;
+
+    --dark-green: #9aad9f;
+
+    --light-green: #e8eee9;
+
+    --cream: #f7f5ef;
+
+    --beige: #d7c7b6;
+
+    --accent: #9b8067;
+
+    --white: #ffffff;
+
+}
+
+
+/* ==================================================
+   KONTEJNER
+================================================== */
+
+.container {
+
+    width: min(1200px, 90%);
+
+    margin: 0 auto;
+
+}
+
+
+/* ==================================================
+   NAVIGACE
+================================================== */
+
+.navbar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background:
+        #9aad9f;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.08);
+
+}
+
+
+.nav-container {
+
+    width: min(1450px, 95%);
+
+    margin: 0 auto;
+
+    min-height: 75px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.logo {
+
+    color: white;
+
+    font-size: 24px;
+
+    font-style: italic;
+
+    white-space: nowrap;
+
+    transition: 0.3s ease;
+
+}
+
+
+.logo:hover {
+
+    color: var(--beige);
+
+}
+
+
+nav {
+
+    display: flex;
+
+    gap: 18px;
+
+    align-items: center;
+
+}
+
+
+nav a {
+
+    position: relative;
+
+    color: white;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+
+    transition: 0.3s ease;
+
+}
+
+
+nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -6px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: var(--beige);
+
+    transition: 0.3s ease;
+
+}
+
+
+nav a:hover {
+
+    color: var(--beige);
+
+}
+
+
+nav a:hover::after {
+
+    width: 100%;
+
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.hero {
+
+    position: relative;
+
+    height: 100vh;
+
+    min-height: 650px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    color: white;
+
+    background-image:
+        url("images/hero.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+}
+
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(30, 52, 44, 0.38),
+            rgba(30, 52, 44, 0.60)
+        );
+
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 90%;
+
+}
+
+
+.hero-small {
+
+    font-size: 16px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.hero h1 {
+
+    font-size:
+        clamp(60px, 9vw, 120px);
+
+    font-weight: normal;
+
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+
+}
+
+
+.hero h1 span {
+
+    color: var(--beige);
+
+    font-style: italic;
+
+}
+
+
+.hero-date {
+
+    font-size: 22px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 40px;
+
+}
+
+
+/* ==================================================
+   TLAČÍTKA
+================================================== */
+
+.hero-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.button {
+
+    display: inline-block;
+
+    padding: 13px 28px;
+
+    border: 2px solid white;
+
+    color: white;
+
+    font-size: 15px;
+
+    border-radius: 40px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.button:hover {
+
+    background: white;
+
+    color: var(--dark-green);
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.2);
+
+}
+
+
+.button-light {
+
+    background:
+        rgba(255, 255, 255, 0.15);
+
+    backdrop-filter: blur(5px);
+
+}
+
+
+/* ==================================================
+   SCROLL DOWN
+================================================== */
+
+.scroll-down {
+
+    position: absolute;
+
+    bottom: 30px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: white;
+
+    font-size: 30px;
+
+    animation:
+        bounce 2s infinite;
+
+}
+
+
+@keyframes bounce {
+
+    0%,
+    100% {
+
+        transform:
+            translate(-50%, 0);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, 10px);
+
+    }
+
+}
+
+
+/* ==================================================
+   SEKCE
+================================================== */
+
+.section {
+
+    padding: 110px 0;
+
+    background: var(--cream);
+
+}
+
+
+.section-green {
+
+    background:
+        var(--light-green);
+
+}
+
+
+.section-heading {
+
+    max-width: 700px;
+
+    margin:
+        0 auto 60px;
+
+    text-align: center;
+
+}
+
+
+.section-subtitle {
+
+    color: var(--accent);
+
+    font-size: 13px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.section-heading h2 {
+
+    font-size:
+        clamp(40px, 6vw, 65px);
+
+    font-weight: normal;
+
+    line-height: 1.2;
+
+    margin-bottom: 20px;
+
+}
+
+
+.section-heading p {
+
+    font-size: 17px;
+
+    color: #60756b;
+
+}
+
+
+/* ==================================================
+   GALERIE
+================================================== */
+
+.gallery {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.gallery-item {
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(48, 70, 61, 0.12);
+
+}
+
+
+.gallery-item img {
+
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.7s ease;
+
+}
+
+
+.gallery-item:hover img {
+
+    transform:
+        scale(1.07);
+
+}
+
+
+/* ==================================================
+   O NÁS
+================================================== */
+
+.about {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+}
+
+
+.about-image {
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(48, 70, 61, 0.15);
+
+}
+
+
+.about-image img {
+
+    display: block;
+
+    width: 100%;
+
+    transition:
+        transform 0.8s ease;
+
+}
+
+
+.about-image:hover img {
+
+    transform:
+        scale(1.04);
+
+}
+
+
+.about-text h2 {
+
+    font-size: 55px;
+
+    font-weight: normal;
+
+    margin-bottom: 25px;
+
+}
+
+
+.about-text p {
+
+    margin-bottom: 18px;
+
+    color: #60756b;
+
+}
+
+
+.about-signature {
+
+    font-size: 25px;
+
+    font-style: italic;
+
+    color:
+        var(--eucalyptus) !important;
+
+    margin-top: 30px;
+
+}
+
+
+/* ==================================================
+   ZASEDACÍ POŘÁDEK
+================================================== */
+
+.seating-image {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(48, 70, 61, 0.15);
+
+}
+
+
+.seating-image img {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    transition:
+        transform 0.8s ease;
+
+}
+
+
+.seating-image:hover img {
+
+    transform:
+        scale(1.02);
+
+}
+
+
+/* ==================================================
+   HARMONOGRAM
+================================================== */
+
+.timeline {
+
+    position: relative;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+}
+
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    bottom: 0;
+
+    left: 50%;
+
+    width: 2px;
+
+    background:
+        var(--beige);
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+.timeline-item {
+
+    position: relative;
+
+    width: 50%;
+
+    padding: 20px 50px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.timeline-item:nth-child(odd) {
+
+    left: 0;
+
+    text-align: right;
+
+}
+
+
+.timeline-item:nth-child(even) {
+
+    left: 50%;
+
+    text-align: left;
+
+}
+
+
+.timeline-time {
+
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    border-radius: 30px;
+
+    background:
+        var(--eucalyptus);
+
+    color: white;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.timeline-content {
+
+    background:
+        rgba(255, 255, 255, 0.75);
+
+    padding: 22px;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(48, 70, 61, 0.08);
+
+}
+
+
+.timeline-content h3 {
+
+    font-size: 22px;
+
+    font-weight: normal;
+
+    margin-bottom: 7px;
+
+}
+
+
+.timeline-content p {
+
+    color: #60756b;
+
+    font-size: 14px;
+    text-align: left;
+
+}
+
+
+/* ==================================================
+   NÁPOJE
+================================================== */
+
+.drinks {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.drink-card {
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: white;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(48, 70, 61, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.drink-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 20px 45px
+        rgba(48, 70, 61, 0.15);
+
+}
+
+
+.drink-icon {
+
+    font-size: 40px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.drink-card h3 {
+
+    font-size: 25px;
+
+    font-weight: normal;
+
+    margin-bottom: 20px;
+
+}
+
+
+.drink-card ul {
+
+    list-style: none;
+
+}
+
+
+.drink-card li {
+
+    margin-bottom: 8px;
+
+    color: #60756b;
+
+}
+
+
+.drink-card p {
+
+    color: #60756b;
+
+}
+
+
+.signature {
+
+    background:
+        var(--dark-green);
+
+    color: white;
+
+}
+
+
+.signature p {
+
+    color:
+        #dce5df;
+
+}
+
+
+/* ==================================================
+   MÍSTA SVATBY
+================================================== */
+
+.places {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 35px;
+
+    max-width: 1150px;
+
+    margin: 0 auto;
+
+}
+
+
+.place-card {
+
+    overflow: hidden;
+
+    background: white;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(48, 70, 61, 0.10);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+
+}
+
+
+.place-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 25px 60px
+        rgba(48, 70, 61, 0.17);
+
+}
+
+
+.place-image {
+
+    overflow: hidden;
+
+    height: 320px;
+
+}
+
+
+.place-image img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.8s ease;
+
+}
+
+
+.place-card:hover
+.place-image img {
+
+    transform:
+        scale(1.05);
+
+}
+
+
+.place-content {
+
+    padding: 35px;
+
+}
+
+
+.place-label {
+
+    color:
+        var(--accent) !important;
+
+    font-size: 12px !important;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 8px !important;
+
+}
+
+
+.place-content h3 {
+
+    font-size: 34px;
+
+    font-weight: normal;
+
+    line-height: 1.2;
+
+    margin-bottom: 5px;
+
+}
+
+
+.place-content h4 {
+
+    color:
+        var(--eucalyptus);
+
+    font-size: 23px;
+
+    font-weight: normal;
+
+    margin-bottom: 20px;
+
+}
+
+
+.place-description {
+
+    color: #60756b;
+
+    font-size: 15px;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* adresa */
+
+.address {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 14px;
+
+    padding: 18px;
+
+    background:
+        var(--light-green);
+
+    border-radius: 8px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.address-icon {
+
+    font-size: 22px;
+
+}
+
+
+.address strong {
+
+    display: block;
+
+    margin-bottom: 3px;
+
+    color:
+        var(--dark-green);
+
+}
+
+
+.address p {
+
+    margin: 0;
+
+    color: #60756b;
+
+    font-size: 14px;
+
+}
+
+
+/* mapa */
+
+.place-button {
+
+    display: inline-block;
+
+    padding: 11px 22px;
+
+    border:
+        2px solid var(--eucalyptus);
+
+    border-radius: 30px;
+
+    color:
+        var(--eucalyptus);
+
+    font-size: 14px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+
+}
+
+
+.place-button:hover {
+
+    background:
+        var(--eucalyptus);
+
+    color: white;
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+/* ==================================================
+   SAMOSTATNÁ ZÁVĚREČNÁ FOTOGRAFIE
+================================================== */
+
+.final-photo {
+
+    position: relative;
+
+    min-height: 650px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    color: white;
+
+    background-image:
+        url("images/final.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+}
+
+
+.final-photo-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(30, 52, 44, 0.42);
+
+}
+
+
+.final-photo-content {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.final-photo-content p {
+
+    font-size: 14px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.final-photo-content h2 {
+
+    font-size:
+        clamp(50px, 8vw, 90px);
+
+    font-weight: normal;
+
+}
+
+
+.final-photo-content h2 span {
+
+    color:
+        var(--beige);
+
+    font-style: italic;
+
+}
+
+
+/* ==================================================
+   VAŠE FOTKY ZE SVATBY
+================================================== */
+
+.photo-upload-section {
+
+    background:
+        var(--cream);
+
+}
+
+
+.qr-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-bottom: 60px;
+
+}
+
+
+/* MÍSTO PRO QR */
+
+.qr-placeholder {
+
+    width: 550px;
+
+    height: 550px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background: white;
+
+    border:
+        3px dashed var(--beige);
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(48, 70, 61, 0.10);
+
+}
+
+.qr-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 20px;
+}
+
+
+.qr-placeholder-icon {
+
+    width: 110px;
+
+    height: 110px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    border:
+        2px solid var(--eucalyptus);
+
+    color:
+        var(--eucalyptus);
+
+    font-size: 28px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.qr-placeholder p {
+
+    color:
+        #60756b;
+
+    font-size: 14px;
+
+}
+
+
+/* text pod QR */
+
+.photo-upload-text {
+
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+}
+
+
+.photo-upload-text h3 {
+
+    font-size: 32px;
+
+    font-weight: normal;
+
+    margin-bottom: 35px;
+
+}
+
+
+/* kroky */
+
+.how-it-works {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+
+    margin-bottom: 40px;
+
+}
+
+
+.how-step {
+
+    padding: 25px 20px;
+
+}
+
+
+.how-step span {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 45px;
+
+    height: 45px;
+
+    margin:
+        0 auto 15px;
+
+    border-radius: 50%;
+
+    background:
+        var(--eucalyptus);
+
+    color: white;
+
+    font-size: 18px;
+
+}
+
+
+.how-step p {
+
+    color:
+        #60756b;
+
+    font-size: 15px;
+
+}
+
+
+.photo-thanks {
+
+    font-size: 18px;
+
+    font-style: italic;
+
+    color:
+        var(--eucalyptus);
+
+}
+
+
+/* ==================================================
+   ZÁVĚR
+================================================== */
+
+.closing-section {
+
+    position: relative;
+
+    min-height: 550px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    color: white;
+
+    background-image:
+        url("images/final.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+}
+
+
+.closing-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(30, 52, 44, 0.65);
+
+}
+
+
+.closing-content {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.closing-content > p {
+
+    letter-spacing: 5px;
+
+    font-size: 14px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.closing-content h2 {
+
+    font-size:
+        clamp(50px, 8vw, 90px);
+
+    font-weight: normal;
+
+    margin-bottom: 35px;
+
+}
+
+
+.closing-content h2 span {
+
+    color:
+        var(--beige);
+
+    font-style: italic;
+
+}
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+footer {
+
+    padding: 35px 20px;
+
+    text-align: center;
+
+    background:
+        var(--dark-green);
+
+    color: white;
+
+    font-size: 14px;
+
+}
+
+
+footer p:first-child {
+
+    margin-bottom: 5px;
+
+    font-size: 17px;
+
+}
+
+
+/* ==================================================
+   SCROLL ANIMACE
+================================================== */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(50px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        );
+
+}
+
+
+.reveal-up {
+
+    opacity: 0;
+
+    transform:
+        translateY(80px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        );
+
+}
+
+
+.reveal-left {
+
+    opacity: 0;
+
+    transform:
+        translateX(-100px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        );
+
+}
+
+
+.reveal-right {
+
+    opacity: 0;
+
+    transform:
+        translateX(100px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        );
+
+}
+
+
+.reveal.show,
+.reveal-up.show,
+.reveal-left.show,
+.reveal-right.show {
+
+    opacity: 1;
+
+    transform:
+        translate(0);
+
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 1100px) {
+
+    .nav-container {
+
+        width: 94%;
+
+    }
+
+
+    nav {
+
+        gap: 12px;
+
+    }
+
+
+    nav a {
+
+        font-size: 11px;
+
+    }
+
+}
+
+
+/* ==================================================
+   MOBIL / TABLET
+================================================== */
+
+@media (max-width: 900px) {
+
+    .nav-container {
+
+        flex-direction: column;
+
+        padding: 15px 0;
+
+        gap: 10px;
+
+    }
+
+
+    nav {
+
+        gap: 10px 15px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+    }
+
+
+    .hero {
+
+        background-attachment:
+            scroll;
+
+    }
+
+
+    .gallery {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .about {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 40px;
+
+    }
+
+
+    .drinks {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .places {
+
+        grid-template-columns:
+            1fr;
+
+        max-width: 650px;
+
+    }
+
+
+    .how-it-works {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 10px;
+
+    }
+
+
+    .final-photo {
+
+        background-attachment:
+            scroll;
+
+    }
+
+}
+
+
+/* ==================================================
+   MOBIL
+================================================== */
+
+@media (max-width: 650px) {
+
+    .navbar {
+
+        position: absolute;
+
+    }
+
+
+    .nav-container {
+
+        min-height: auto;
+
+        padding: 15px 0;
+
+    }
+
+
+    .logo {
+
+        font-size: 20px;
+
+    }
+
+
+    nav {
+
+        gap: 8px 12px;
+
+    }
+
+
+    nav a {
+
+        font-size: 10px;
+
+    }
+
+
+    .hero {
+
+        min-height: 600px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 55px;
+
+    }
+
+
+    .hero-date {
+
+        font-size: 17px;
+
+    }
+
+
+    .section {
+
+        padding: 80px 0;
+
+    }
+
+
+    .gallery {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .about-text h2 {
+
+        font-size: 45px;
+
+    }
+
+
+    /* timeline */
+
+    .timeline::before {
+
+        left: 15px;
+
+        transform: none;
+
+    }
+
+
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+
+        width: 100%;
+
+        left: 0;
+
+        padding:
+            15px
+            15px
+            15px
+            50px;
+
+        text-align: left;
+
+    }
+
+
+    .drinks {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    /* místa */
+
+    .place-image {
+
+        height: 240px;
+
+    }
+
+
+    .place-content {
+
+        padding: 25px;
+
+    }
+
+
+    .place-content h3 {
+
+        font-size: 29px;
+
+    }
+
+
+    .place-content h4 {
+
+        font-size: 20px;
+
+    }
+
+
+    /* závěrečná fotka */
+
+    .final-photo {
+
+        min-height: 500px;
+
+    }
+
+
+    /* QR */
+
+    .qr-placeholder {
+
+        width: 240px;
+
+        height: 240px;
+
+    }
+
+
+    .how-it-works {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 5px;
+
+    }
+
+
+    .how-step {
+
+        padding: 15px 20px;
+
+    }
+
+
+    .closing-section {
+
+        min-height: 450px;
+
+    }
+
+}
